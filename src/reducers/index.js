@@ -1,38 +1,21 @@
 import { combineReducers } from 'redux'
 import {
-  ADD_ITEM
+  ADD_ITEM,
+  REMOVE_FROM_CALENDAR,
 } from '../actions/index'
 
-
-
+let itemCounter = 0;
 const initialState = {
-  sunday: {
-    items:null
-  },
-  monday: {
-    items:null
-  },
-  tuesday: {
-    items:null
-  },
-  wednesday: {
-    items:null
-  },
-  thursday: {
-    items:null
-  },
-  friday: {
-    items:null
-  },
-  saturday: {
-    items:null
-  },
+  items: {
+    item: null,
+    id: itemCounter + 1,
+  }
 }
 
 
 function calendar(state = initialState, action ){
 
-  const { day, items } = action
+const { day, item, id } = action
 
   switch (action.type){
     case ADD_ITEM:
@@ -40,9 +23,19 @@ function calendar(state = initialState, action ){
         ...state,
         [day]:{
           ...state[day],
-          [items]: items
+          [item]: item,
+          id: id,
         }
       }
+    case REMOVE_FROM_CALENDAR:
+      return {
+        ...state,
+        [day]: {
+          ...state[day], 
+          [item]: null
+        }
+      }
+
     default:
       return state
   }
