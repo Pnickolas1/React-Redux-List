@@ -1,4 +1,4 @@
-export const ADD_ITEM = 'ADD-ITEM';
+export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_FROM_CALENDAR = 'REMOVE_FROM_CALENDAR';
 
 let itemId = 0;
@@ -13,10 +13,10 @@ export function addItem ({ day, item }){
 }
 
 
-export function removeFromCalendar({ day, item}){
+export function removeFromCalendar({ id, item}){
   return {
     type: REMOVE_FROM_CALENDAR,
-    day,
+    id,
     item,
   }
 }

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
 
 class ItemList extends Component {
 
   render(){
     return (
-      <div style={{alignItems: 'center'}}>
-          <Panel style={styles.itemsPanel} header="Items Schedule" bsStyle="primary">
+      <div>
+
+          <Panel style={[{display:'flex', justifyContent: 'center'}]} header="Items Schedule" bsStyle="primary">
           </Panel>
       </div>
     )
@@ -17,11 +20,9 @@ class ItemList extends Component {
 // component styles
 const styles = {
   itemsPanel: {
-    marginTop: 25,
-    position: 'absolute',
-    alignItems: 'center',
-    width: 600,
+    display:'flex',
+    justifyContent: 'center',
   }
 }
 
-export default ItemList;
+export default connect() (ItemList);

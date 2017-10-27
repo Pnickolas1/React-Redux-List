@@ -24,10 +24,10 @@ class App extends Component {
 }
 
 
-function mapStateToProps(calendar){
+function mapStateToProps(item){
   
   return {
-    calendar: "peter"
+    items: ["this", "that", "and", "this"]
   }
 }
 

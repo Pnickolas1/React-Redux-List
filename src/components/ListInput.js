@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux'
 
 class ListInput extends Component{
 
   state = {
-    day: null,
-    items: null,
+    items: null
   }
 
 
@@ -31,5 +31,12 @@ class ListInput extends Component{
 
 }
 
+function mapStateToProps(item){
 
-export default ListInput;
+  return{
+    items: ["nothing but a g thing"]
+  }
+}
+
+
+export default connect(mapStateToProps) (ListInput);

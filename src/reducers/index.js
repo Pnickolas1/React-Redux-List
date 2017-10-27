@@ -5,36 +5,28 @@ import {
 } from '../actions/index'
 
 let itemCounter = 0;
-const initialState = {
-  items: {
+const initialState = [
+  {
     item: null,
     id: itemCounter + 1,
   }
-}
+]
 
 
-function calendar(state = initialState, action ){
+function toDoList(state = initialState, action ){
 
-const { day, item, id } = action
+const { text, id } = action
 
   switch (action.type){
     case ADD_ITEM:
-      return {
+      return [
         ...state,
-        [day]:{
-          ...state[day],
-          [item]: item,
-          id: id,
+        {
+        id: action.id,
+        item: action.text
         }
-      }
-    case REMOVE_FROM_CALENDAR:
-      return {
-        ...state,
-        [day]: {
-          ...state[day], 
-          [item]: null
-        }
-      }
+      ];
+
 
     default:
       return state
@@ -42,5 +34,5 @@ const { day, item, id } = action
 }
 
 export default combineReducers({
-  calendar,
+  toDoList,
 })
