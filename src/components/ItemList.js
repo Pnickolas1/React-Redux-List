@@ -16,13 +16,4 @@ class ItemList extends Component {
   }
 }
 
-
-// component styles
-const styles = {
-  itemsPanel: {
-    display:'flex',
-    justifyContent: 'center',
-  }
-}
-
 export default connect() (ItemList);

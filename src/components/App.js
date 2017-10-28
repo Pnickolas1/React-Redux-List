@@ -4,8 +4,13 @@ import '../App.css';
 import ListInput from './ListInput'
 import ItemList from './ItemList'
 import { connect } from 'react-redux';
+import { addItem } from '../actions/index';
 
 class App extends Component {
+
+  addAItem = () =>{
+    this.props.addNewItem({})
+  }
 
 
   render() {
@@ -31,4 +36,13 @@ function mapStateToProps(item){
   }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch){
+  return{
+    addNewItem : (data) => dispatch(addItem(data))
+  }
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

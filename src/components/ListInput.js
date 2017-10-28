@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
+import { addItem } from '../actions/index';
 
 class ListInput extends Component{
 
   state = {
     items: null
   }
+
+
+  addThisItem = () => {
+    this.props.addToDoItem({})
+  }
+ 
 
 
   render() {
@@ -20,6 +27,7 @@ class ListInput extends Component{
           </div>
           <div>
           {JSON.stringify(this.state.items)}
+          {JSON.stringify(this.props.items)}
           </div>
           <div className="buttonContainer">
             <Button style={{marginTop: 10}} bsStyle="primary">Add Item</Button>
@@ -34,9 +42,15 @@ class ListInput extends Component{
 function mapStateToProps(item){
 
   return{
-    items: ["nothing but a g thing"]
+    items:null
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+    addToDoItem: (data) => dispatch(addItem(data))
   }
 }
 
 
-export default connect(mapStateToProps) (ListInput);
+export default connect(mapStateToProps, mapDispatchToProps) (ListInput);
