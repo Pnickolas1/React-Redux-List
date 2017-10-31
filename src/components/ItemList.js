@@ -9,10 +9,19 @@ class ItemList extends Component {
     return (
       <div>
 
-          <Panel style={[{display:'flex', justifyContent: 'center'}]} header="Items Schedule" bsStyle="primary">
+          <Panel style={styles.panelStyles} header="Items Schedule" bsStyle="primary">
           </Panel>
       </div>
     )
+  }
+}
+
+
+const styles = {
+  panelStyles:{
+    justifyContent: 'center',
+    width: 600,
+    alignItems: 'center'
   }
 }
 
