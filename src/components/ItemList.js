@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap'
+import { Panel, Col, Row } from 'react-bootstrap'
 import { connect } from 'react-redux'
-
 
 class ItemList extends Component {
 
   render(){
     return (
-      <div>
-
+      <div style={styles.container}>
+        <Col xs={12} sm={6}>
           <Panel style={styles.panelStyles} header="Items Schedule" bsStyle="primary">
           </Panel>
+        </Col>
       </div>
     )
   }
@@ -19,8 +19,14 @@ class ItemList extends Component {
 
 const styles = {
   panelStyles:{
+    marginTop:25,
+    marginBotton: 25,
     justifyContent: 'center',
-    width: 600,
+    alignItems: 'center',
+  },
+  container:{
+    display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center'
   }
 }
